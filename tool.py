@@ -29,6 +29,6 @@ r = urllib.request.urlopen(req)
 contests = json.load(r)
 for contest in contests['result']:
   contestId = contest['id']
-  if contestId not in submittedset:
+  if contestId not in submittedset and contest['phase'] == "FINISHED":
     print(str(contestId) + ": " + contest['name'])
 
